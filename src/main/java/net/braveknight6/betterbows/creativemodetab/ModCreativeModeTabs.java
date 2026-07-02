@@ -1,6 +1,7 @@
 package net.braveknight6.betterbows.creativemodetab;
 
 import net.braveknight6.betterbows.BetterBows;
+import net.braveknight6.betterbows.block.ModBlocks;
 import net.braveknight6.betterbows.item.ModItems;
 import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTab;
 import net.minecraft.core.Registry;
@@ -17,6 +18,7 @@ public class ModCreativeModeTabs {
                     .title(Component.translatable("creativemodetab.betterbows.better_bows_items"))
                     .displayItems((parameters, output) -> {
                         output.accept(ModItems.QUIVER);
+                        output.accept(ModBlocks.BOWSMITHING_TABLE);
                     }).build());
 
     public static void registerModCreativeModeTabs(){
