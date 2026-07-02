@@ -1,5 +1,6 @@
 package net.braveknight6.betterbows;
 
+import net.braveknight6.betterbows.creativemodetab.ModCreativeModeTabs;
 import net.braveknight6.betterbows.item.ModItems;
 import net.fabricmc.api.ModInitializer;
 
@@ -15,6 +16,7 @@ public class BetterBows implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		ModCreativeModeTabs.registerModCreativeModeTabs();
 		ModItems.registerModItems();
 	}
 	public static Identifier id(String path) {
