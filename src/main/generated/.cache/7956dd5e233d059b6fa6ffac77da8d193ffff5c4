@@ -1,3 +1,6 @@
 // 26.2	-999999999-01-01T00:00:00	Better Bows/Model Definitions
+de729e126ce779522b03ee5c1aace969b84c7f11 assets/betterbows/blockstates/bowsmithing_table.json
+7ab5bc8354a7888c41ed5c27323f6d3b2c5774fd assets/betterbows/items/bowsmithing_table.json
 9182cd381a3adc79ba18f095d65d5844e8bdcb01 assets/betterbows/items/quiver.json
+b4da6bfc5a0770e25b25e14a4ec6a5052ffd61ff assets/betterbows/models/block/bowsmithing_table.json
 4fadb988de8c9015eb6936312de0690924d716ca assets/betterbows/models/item/quiver.json

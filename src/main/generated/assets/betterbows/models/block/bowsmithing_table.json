@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/orientable_with_bottom",
+  "textures": {
+    "bottom": "betterbows:block/bowsmithing_table_bottom",
+    "front": "betterbows:block/bowsmithing_table_front",
+    "side": "betterbows:block/bowsmithing_table_side",
+    "top": "betterbows:block/bowsmithing_table_top"
+  }
+}
