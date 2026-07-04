@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": "minecraft:string",
+    "W": "#minecraft:planks"
+  },
+  "pattern": [
+    "SS",
+    "WW",
+    "WW"
+  ],
+  "result": {
+    "id": "betterbows:bowsmithing_table"
+  }
+}
