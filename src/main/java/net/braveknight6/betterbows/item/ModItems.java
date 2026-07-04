@@ -27,4 +27,8 @@ public class ModItems {
             output.accept(QUIVER);
         });
     }
+
+    public static ResourceKey<Item> getRK(Item item){
+        return BuiltInRegistries.ITEM.getResourceKey(item).get();
+    }
 }

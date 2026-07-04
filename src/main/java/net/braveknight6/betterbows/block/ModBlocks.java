@@ -30,6 +30,10 @@ public class ModBlocks {
                         .setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(BetterBows.MOD_ID, name)))));
     }
 
+    public static ResourceKey<Block> getRK(Block block){
+        return BuiltInRegistries.BLOCK.getResourceKey(block).get();
+    }
+
     public static void registerModBlocks(){
         BetterBows.LOGGER.info("Registering blocks for " + BetterBows.MOD_ID);
     }
