@@ -19,6 +19,7 @@ public class ModCreativeModeTabs {
                     .displayItems((parameters, output) -> {
                         output.accept(ModItems.QUIVER);
                         output.accept(ModBlocks.BOWSMITHING_TABLE);
+                        output.accept(ModItems.REDSTONE_BOW);
                     }).build());
 
     public static void registerModCreativeModeTabs(){
