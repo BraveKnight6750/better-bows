@@ -1,6 +1,7 @@
 package net.braveknight6.betterbows.item;
 
 import net.braveknight6.betterbows.BetterBows;
+import net.braveknight6.betterbows.item.custom.RedstoneBow;
 import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -14,6 +15,8 @@ import java.util.function.Function;
 
 public class ModItems {
     public static final Item QUIVER = registerItem("quiver", Item::new);
+
+    public static final Item REDSTONE_BOW = registerItem("redstone_bow", properties -> new RedstoneBow(properties.durability(50)));
 
     public static Item registerItem(String name, Function<Item.Properties, Item> function){
         return Registry.register(BuiltInRegistries.ITEM, Identifier.fromNamespaceAndPath(BetterBows.MOD_ID, name),
