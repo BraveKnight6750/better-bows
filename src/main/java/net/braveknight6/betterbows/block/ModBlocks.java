@@ -16,7 +16,7 @@ import java.util.function.Function;
 
 public class ModBlocks {
     public static final Block BOWSMITHING_TABLE = registerBlock("bowsmithing_table",
-            properties -> new Block(properties.strength(2.5F).requiresCorrectToolForDrops().sound(SoundType.WOOD).ignitedByLava()));
+            properties -> new Block(properties.strength(2.5F).sound(SoundType.WOOD).ignitedByLava()));
 
     private static Block registerBlock(String name, Function<BlockBehaviour.Properties, Block> function){
        Block toRegister = function.apply(BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(BetterBows.MOD_ID, name))));
