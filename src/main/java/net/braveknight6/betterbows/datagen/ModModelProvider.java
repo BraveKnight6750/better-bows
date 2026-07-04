@@ -23,5 +23,7 @@ public class ModModelProvider extends FabricModelProvider {
     @Override
     public void generateItemModels(ItemModelGenerators itemModelGenerators) {
         itemModelGenerators.generateFlatItem(ModItems.QUIVER, ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.REDSTONE_BOW, ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateBow(ModItems.REDSTONE_BOW);
     }
 }
