@@ -14,6 +14,7 @@ import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
@@ -40,26 +41,29 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                        .unlockedBy(getHasName(Items.OAK_PLANKS), has(Items.OAK_PLANKS))
                        .save(output);
 
-               ShapedRecipePattern pattern = ShapedRecipePattern.of(
+               customBuildRecipes(output, "redstone_bow", Items.REDSTONE, ModItems.REDSTONE_BOW);
+            }
+
+            private void customBuildRecipes(RecipeOutput recipeOutput, String name, Item craftItem, Item outputItem) {
+                ShapedRecipePattern pattern = ShapedRecipePattern.of(
                         Map.of(
-                       'S', Ingredient.of(Items.STICK),
-                       'R', Ingredient.of(Items.REDSTONE),
-                       '~', Ingredient.of(Items.STRING)),
-                       " R~",
-                       "RS~",
-                       " R~");
+                                'S', Ingredient.of(Items.STICK),
+                                'R', Ingredient.of(craftItem),
+                                '~', Ingredient.of(Items.STRING)),
+                        " R~",
+                        "RS~",
+                        " R~");
 
-               ShapedRecipe shapedLayout = new ShapedRecipe(
-                       new Recipe.CommonInfo(false),
-                       new CraftingRecipe.CraftingBookInfo(CraftingBookCategory.EQUIPMENT, ""),
-                       pattern,
-                       new ItemStackTemplate(ModItems.REDSTONE_BOW)
-               );
+                ShapedRecipe shapedLayout = new ShapedRecipe(
+                        new Recipe.CommonInfo(false),
+                        new CraftingRecipe.CraftingBookInfo(CraftingBookCategory.EQUIPMENT, ""),
+                        pattern,
+                        new ItemStackTemplate(outputItem)
+                );
 
-               output.accept(
-                       ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(BetterBows.MOD_ID, "redstone_bow")
-                       ), new CustomCraftingRecipe(shapedLayout), null);
-
+                recipeOutput.accept(
+                        ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(BetterBows.MOD_ID, name)
+                        ), new CustomCraftingRecipe(shapedLayout), null);
             }
         };
     }
