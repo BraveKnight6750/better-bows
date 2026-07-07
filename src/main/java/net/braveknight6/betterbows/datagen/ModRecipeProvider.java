@@ -1,16 +1,24 @@
 package net.braveknight6.betterbows.datagen;
 
+import net.braveknight6.betterbows.BetterBows;
 import net.braveknight6.betterbows.block.ModBlocks;
+import net.braveknight6.betterbows.item.ModItems;
+import net.braveknight6.betterbows.recipe.CustomCraftingRecipe;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.item.crafting.*;
 
+import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
 public class ModRecipeProvider extends FabricRecipeProvider {
@@ -31,6 +39,27 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                        .define('W', ItemTags.PLANKS)
                        .unlockedBy(getHasName(Items.OAK_PLANKS), has(Items.OAK_PLANKS))
                        .save(output);
+
+               ShapedRecipePattern pattern = ShapedRecipePattern.of(
+                        Map.of(
+                       'S', Ingredient.of(Items.STICK),
+                       'R', Ingredient.of(Items.REDSTONE),
+                       '~', Ingredient.of(Items.STRING)),
+                       " R~",
+                       "RS~",
+                       " R~");
+
+               ShapedRecipe shapedLayout = new ShapedRecipe(
+                       new Recipe.CommonInfo(false),
+                       new CraftingRecipe.CraftingBookInfo(CraftingBookCategory.EQUIPMENT, ""),
+                       pattern,
+                       new ItemStackTemplate(ModItems.REDSTONE_BOW)
+               );
+
+               output.accept(
+                       ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(BetterBows.MOD_ID, "redstone_bow")
+                       ), new CustomCraftingRecipe(shapedLayout), null);
+
             }
         };
     }
