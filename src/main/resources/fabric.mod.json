@@ -18,6 +18,9 @@
 		"main": [
 			"net.braveknight6.betterbows.BetterBows"
 		],
+		"client": [
+			"net.braveknight6.betterbows.client.BetterBowsClient"
+		],
 		"fabric-datagen": [
 			"net.braveknight6.betterbows.BetterBowsDataGenerator"
 		]
