@@ -11,19 +11,19 @@ import net.minecraft.client.data.models.model.TexturedModel;
 
 public class ModModelProvider extends FabricModelProvider {
 
-    public ModModelProvider(FabricPackOutput output) {
-        super(output);
-    }
+  public ModModelProvider(FabricPackOutput output) {
+    super(output);
+  }
 
-    @Override
-    public void generateBlockStateModels(BlockModelGenerators blockModelGenerators) {
-        blockModelGenerators.createTrivialBlock(ModBlocks.BOWSMITHING_TABLE, TexturedModel.ORIENTABLE);
-    }
+  @Override
+  public void generateBlockStateModels(BlockModelGenerators blockModelGenerators) {
+    blockModelGenerators.createTrivialBlock(ModBlocks.BOWSMITHING_TABLE, TexturedModel.ORIENTABLE);
+  }
 
-    @Override
-    public void generateItemModels(ItemModelGenerators itemModelGenerators) {
-        itemModelGenerators.generateFlatItem(ModItems.QUIVER, ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.createFlatItemModel(ModItems.REDSTONE_BOW, ModelTemplates.BOW);
-        itemModelGenerators.generateBow(ModItems.REDSTONE_BOW);
-    }
+  @Override
+  public void generateItemModels(ItemModelGenerators itemModelGenerators) {
+    itemModelGenerators.generateFlatItem(ModItems.QUIVER, ModelTemplates.FLAT_ITEM);
+    itemModelGenerators.createFlatItemModel(ModItems.REDSTONE_BOW, ModelTemplates.BOW);
+    itemModelGenerators.generateBow(ModItems.REDSTONE_BOW);
+  }
 }

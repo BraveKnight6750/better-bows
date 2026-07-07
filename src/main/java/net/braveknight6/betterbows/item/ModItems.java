@@ -1,5 +1,6 @@
 package net.braveknight6.betterbows.item;
 
+import java.util.function.Function;
 import net.braveknight6.betterbows.BetterBows;
 import net.braveknight6.betterbows.item.custom.RedstoneBow;
 import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
@@ -11,27 +12,35 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 
-import java.util.function.Function;
-
 public class ModItems {
-    public static final Item QUIVER = registerItem("quiver", Item::new);
+  public static final Item QUIVER = registerItem("quiver", Item::new);
 
-    public static final Item REDSTONE_BOW = registerItem("redstone_bow", properties -> new RedstoneBow(properties.durability(50)));
+  public static final Item REDSTONE_BOW =
+      registerItem("redstone_bow", properties -> new RedstoneBow(properties.durability(50)));
 
-    public static Item registerItem(String name, Function<Item.Properties, Item> function){
-        return Registry.register(BuiltInRegistries.ITEM, Identifier.fromNamespaceAndPath(BetterBows.MOD_ID, name),
-                function.apply(new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(BetterBows.MOD_ID, name)))));
-    }
+  public static Item registerItem(String name, Function<Item.Properties, Item> function) {
+    return Registry.register(
+        BuiltInRegistries.ITEM,
+        Identifier.fromNamespaceAndPath(BetterBows.MOD_ID, name),
+        function.apply(
+            new Item.Properties()
+                .setId(
+                    ResourceKey.create(
+                        Registries.ITEM,
+                        Identifier.fromNamespaceAndPath(BetterBows.MOD_ID, name)))));
+  }
 
-    public static void registerModItems() {
-        BetterBows.LOGGER.info("Registering mod items for " + BetterBows.MOD_ID);
+  public static void registerModItems() {
+    BetterBows.LOGGER.info("Registering mod items for " + BetterBows.MOD_ID);
 
-        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.COMBAT).register(output -> {
-            output.accept(QUIVER);
-        });
-    }
+    CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.COMBAT)
+        .register(
+            output -> {
+              output.accept(QUIVER);
+            });
+  }
 
-    public static ResourceKey<Item> getRK(Item item){
-        return BuiltInRegistries.ITEM.getResourceKey(item).get();
-    }
+  public static ResourceKey<Item> getRK(Item item) {
+    return BuiltInRegistries.ITEM.getResourceKey(item).get();
+  }
 }

@@ -15,32 +15,37 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import org.jspecify.annotations.Nullable;
 
-public class BowsmithingTableBlock extends Block{
-    public static final MapCodec<BowsmithingTableBlock> CODEC = simpleCodec(BowsmithingTableBlock::new);
-    public static final Component CONTAINER_TITLE = Component.translatable("block.betterbows.bowsmithing_table");
+public class BowsmithingTableBlock extends Block {
+  public static final MapCodec<BowsmithingTableBlock> CODEC =
+      simpleCodec(BowsmithingTableBlock::new);
+  public static final Component CONTAINER_TITLE =
+      Component.translatable("block.betterbows.bowsmithing_table");
 
-    @Override
-    protected MapCodec<? extends Block> codec() {
-        return CODEC;
+  @Override
+  protected MapCodec<? extends Block> codec() {
+    return CODEC;
+  }
+
+  public BowsmithingTableBlock(Properties properties) {
+    super(properties);
+  }
+
+  @Override
+  protected InteractionResult useWithoutItem(
+      BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
+    if (!level.isClientSide()) {
+      player.openMenu(state.getMenuProvider(level, pos));
     }
 
-    public BowsmithingTableBlock(Properties properties) {
-        super(properties);
-    }
+    return InteractionResult.SUCCESS;
+  }
 
-    @Override
-    protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
-        if (!level.isClientSide()){
-            player.openMenu(state.getMenuProvider(level, pos));
-        }
-
-        return InteractionResult.SUCCESS;
-    }
-
-    @Override
-    protected @Nullable MenuProvider getMenuProvider(BlockState state, Level level, BlockPos pos) {
-       return new SimpleMenuProvider(
-               (containerId, inventory, player) -> new BowsmithingTableMenu(containerId, inventory, ContainerLevelAccess.create(level, pos)), CONTAINER_TITLE
-       );
-    }
+  @Override
+  protected @Nullable MenuProvider getMenuProvider(BlockState state, Level level, BlockPos pos) {
+    return new SimpleMenuProvider(
+        (containerId, inventory, player) ->
+            new BowsmithingTableMenu(
+                containerId, inventory, ContainerLevelAccess.create(level, pos)),
+        CONTAINER_TITLE);
+  }
 }

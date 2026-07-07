@@ -11,14 +11,21 @@ import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.inventory.MenuType;
 
 public class ModMenuType {
-    public static final MenuType<BowsmithingTableMenu> BOWSMITHING_TABLE_MENU_TYPE = registerMenuType("bowsmithing_table_menu_type", (containerId, inventory) -> new BowsmithingTableMenu(containerId, inventory, ContainerLevelAccess.NULL));
+  public static final MenuType<BowsmithingTableMenu> BOWSMITHING_TABLE_MENU_TYPE =
+      registerMenuType(
+          "bowsmithing_table_menu_type",
+          (containerId, inventory) ->
+              new BowsmithingTableMenu(containerId, inventory, ContainerLevelAccess.NULL));
 
-    public static<T extends AbstractContainerMenu> MenuType<T> registerMenuType(String name, MenuType.MenuSupplier<T> factory) {
-        return Registry.register(BuiltInRegistries.MENU, Identifier.fromNamespaceAndPath(BetterBows.MOD_ID, name), new MenuType<>(factory,
-                    FeatureFlags.DEFAULT_FLAGS));
-    }
+  public static <T extends AbstractContainerMenu> MenuType<T> registerMenuType(
+      String name, MenuType.MenuSupplier<T> factory) {
+    return Registry.register(
+        BuiltInRegistries.MENU,
+        Identifier.fromNamespaceAndPath(BetterBows.MOD_ID, name),
+        new MenuType<>(factory, FeatureFlags.DEFAULT_FLAGS));
+  }
 
-    public static void registerModMenuTypes(){
-        BetterBows.LOGGER.info("Registering menu types for " + BetterBows.MOD_ID);
-    }
+  public static void registerModMenuTypes() {
+    BetterBows.LOGGER.info("Registering menu types for " + BetterBows.MOD_ID);
+  }
 }

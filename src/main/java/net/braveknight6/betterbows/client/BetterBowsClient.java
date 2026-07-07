@@ -6,8 +6,8 @@ import net.fabricmc.api.ClientModInitializer;
 import net.minecraft.client.gui.screens.MenuScreens;
 
 public class BetterBowsClient implements ClientModInitializer {
-    @Override
-    public void onInitializeClient() {
-        MenuScreens.register(ModMenuType.BOWSMITHING_TABLE_MENU_TYPE, BowsmithingTableScreen::new);
-    }
+  @Override
+  public void onInitializeClient() {
+    MenuScreens.register(ModMenuType.BOWSMITHING_TABLE_MENU_TYPE, BowsmithingTableScreen::new);
+  }
 }
