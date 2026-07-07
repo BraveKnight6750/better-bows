@@ -1,9 +1,6 @@
 package net.braveknight6.betterbows;
 
-import net.braveknight6.betterbows.datagen.ModBlockLootTableProvider;
-import net.braveknight6.betterbows.datagen.ModBlockTagsProvider;
-import net.braveknight6.betterbows.datagen.ModModelProvider;
-import net.braveknight6.betterbows.datagen.ModRecipeProvider;
+import net.braveknight6.betterbows.datagen.*;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 
@@ -15,6 +12,7 @@ public class BetterBowsDataGenerator implements DataGeneratorEntrypoint {
     pack.addProvider(ModModelProvider::new);
     pack.addProvider(ModBlockTagsProvider::new);
     pack.addProvider(ModBlockLootTableProvider::new);
+    pack.addProvider(ModItemTagsProvider::new);
     pack.addProvider(ModRecipeProvider::new);
   }
 }
