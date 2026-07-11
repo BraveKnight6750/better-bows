@@ -1,7 +1,7 @@
 package net.braveknight6.betterbows.menutype;
 
 import net.braveknight6.betterbows.BetterBows;
-import net.braveknight6.betterbows.menu.BowsmithingTableMenu;
+import net.braveknight6.betterbows.menutype.custom.BowsmithingTableMenu;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;

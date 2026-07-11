@@ -1,7 +1,7 @@
 package net.braveknight6.betterbows.client.screen;
 
 import net.braveknight6.betterbows.BetterBows;
-import net.braveknight6.betterbows.menu.BowsmithingTableMenu;
+import net.braveknight6.betterbows.menutype.custom.BowsmithingTableMenu;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.RenderPipelines;

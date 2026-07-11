@@ -1,6 +1,5 @@
-package net.braveknight6.betterbows.menu;
+package net.braveknight6.betterbows.menutype.custom;
 
-import java.util.Optional;
 import net.braveknight6.betterbows.block.ModBlocks;
 import net.braveknight6.betterbows.menutype.ModMenuType;
 import net.braveknight6.betterbows.recipe.CustomCraftingRecipe;
@@ -16,6 +15,8 @@ import net.minecraft.world.item.crafting.CraftingInput;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.level.Level;
+
+import java.util.Optional;
 
 public class BowsmithingTableMenu extends AbstractContainerMenu {
   private final CraftingContainer craftSlots = new TransientCraftingContainer(this, 3, 3);

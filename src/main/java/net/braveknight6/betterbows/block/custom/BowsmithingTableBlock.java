@@ -1,7 +1,7 @@
 package net.braveknight6.betterbows.block.custom;
 
 import com.mojang.serialization.MapCodec;
-import net.braveknight6.betterbows.menu.BowsmithingTableMenu;
+import net.braveknight6.betterbows.menutype.custom.BowsmithingTableMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionResult;
