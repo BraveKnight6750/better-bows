@@ -6,7 +6,6 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
-import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.item.crafting.ShapedRecipe;
@@ -19,7 +18,7 @@ public class ModRecipes {
     CUSTOM_RECIPE_TYPE =
         Registry.register(
             BuiltInRegistries.RECIPE_TYPE,
-            Identifier.fromNamespaceAndPath(BetterBows.MOD_ID, "custom_crafting"),
+            BetterBows.id("custom_crafting"),
             new RecipeType<>() {
               @Override
               public String toString() {
@@ -40,7 +39,7 @@ public class ModRecipes {
     CUSTOM_SERIALIZER =
         Registry.register(
             BuiltInRegistries.RECIPE_SERIALIZER,
-            Identifier.fromNamespaceAndPath(BetterBows.MOD_ID, "custom_crafting"),
+            BetterBows.id("custom_crafting"),
             new RecipeSerializer<>(codec, streamCodec));
   }
 }

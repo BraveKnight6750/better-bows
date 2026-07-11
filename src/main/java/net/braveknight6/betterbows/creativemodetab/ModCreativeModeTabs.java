@@ -7,7 +7,6 @@ import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTab;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 
@@ -15,7 +14,7 @@ public class ModCreativeModeTabs {
   public static final CreativeModeTab BETTER_BOWS_ITEM_TAB =
       Registry.register(
           BuiltInRegistries.CREATIVE_MODE_TAB,
-          Identifier.fromNamespaceAndPath(BetterBows.MOD_ID, "better_bows_items"),
+          BetterBows.id("better_bows_items"),
           FabricCreativeModeTab.builder()
               .icon(() -> new ItemStack(ModItems.QUIVER))
               .title(Component.translatable("creativemodetab.betterbows.better_bows_items"))

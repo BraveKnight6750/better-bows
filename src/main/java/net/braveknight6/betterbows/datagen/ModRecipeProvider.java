@@ -1,7 +1,5 @@
 package net.braveknight6.betterbows.datagen;
 
-import java.util.Map;
-import java.util.concurrent.CompletableFuture;
 import net.braveknight6.betterbows.BetterBows;
 import net.braveknight6.betterbows.block.ModBlocks;
 import net.braveknight6.betterbows.item.ModItems;
@@ -13,13 +11,15 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
-import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
+
+import java.util.Map;
+import java.util.concurrent.CompletableFuture;
 
 public class ModRecipeProvider extends FabricRecipeProvider {
   public ModRecipeProvider(
@@ -66,7 +66,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
         recipeOutput.accept(
             ResourceKey.create(
-                Registries.RECIPE, Identifier.fromNamespaceAndPath(BetterBows.MOD_ID, name)),
+                Registries.RECIPE, BetterBows.id(name)),
             new CustomCraftingRecipe(shapedLayout),
             null);
       }

@@ -4,7 +4,6 @@ import net.braveknight6.betterbows.BetterBows;
 import net.braveknight6.betterbows.menutype.custom.BowsmithingTableMenu;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.Identifier;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerLevelAccess;
@@ -21,7 +20,7 @@ public class ModMenuType {
       String name, MenuType.MenuSupplier<T> factory) {
     return Registry.register(
         BuiltInRegistries.MENU,
-        Identifier.fromNamespaceAndPath(BetterBows.MOD_ID, name),
+        BetterBows.id(name),
         new MenuType<>(factory, FeatureFlags.DEFAULT_FLAGS));
   }
 

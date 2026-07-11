@@ -1,18 +1,18 @@
 package net.braveknight6.betterbows.block;
 
-import java.util.function.Function;
 import net.braveknight6.betterbows.BetterBows;
 import net.braveknight6.betterbows.block.custom.BowsmithingTableBlock;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+
+import java.util.function.Function;
 
 public class ModBlocks {
   public static final Block BOWSMITHING_TABLE =
@@ -30,18 +30,18 @@ public class ModBlocks {
                 .setId(
                     ResourceKey.create(
                         Registries.BLOCK,
-                        Identifier.fromNamespaceAndPath(BetterBows.MOD_ID, name))));
+                        BetterBows.id(name))));
     registerBlockItem(name, toRegister);
     return Registry.register(
         BuiltInRegistries.BLOCK,
-        Identifier.fromNamespaceAndPath(BetterBows.MOD_ID, name),
+        BetterBows.id(name),
         toRegister);
   }
 
   private static void registerBlockItem(String name, Block block) {
     Registry.register(
         BuiltInRegistries.ITEM,
-        Identifier.fromNamespaceAndPath(BetterBows.MOD_ID, name),
+        BetterBows.id(name),
         new BlockItem(
             block,
             new Item.Properties()
@@ -49,7 +49,7 @@ public class ModBlocks {
                 .setId(
                     ResourceKey.create(
                         Registries.ITEM,
-                        Identifier.fromNamespaceAndPath(BetterBows.MOD_ID, name)))));
+                        BetterBows.id(name)))));
   }
 
   public static ResourceKey<Block> getRK(Block block) {
