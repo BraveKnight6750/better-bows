@@ -16,7 +16,7 @@ public class ModItems {
   public static final Item QUIVER = registerItem("quiver", Item::new);
 
   public static final Item REDSTONE_BOW =
-      registerItem("redstone_bow", properties -> new CustomBow(properties.durability(50)));
+      registerItem("redstone_bow", properties -> new CustomBow(properties.durability(50), 1.5F));
 
   public static Item registerItem(String name, Function<Item.Properties, Item> function) {
     return Registry.register(
