@@ -1,0 +1,18 @@
+{
+  "type": "betterbows:custom_crafting",
+  "category": "equipment",
+  "key": {
+    "R": "minecraft:redstone",
+    "S": "minecraft:stick",
+    "~": "minecraft:string"
+  },
+  "pattern": [
+    " R~",
+    "RS~",
+    " R~"
+  ],
+  "result": {
+    "id": "betterbows:redstone_bow"
+  },
+  "show_notification": false
+}

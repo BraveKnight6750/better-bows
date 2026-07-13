@@ -1,3 +1,4 @@
 // 26.2	-999999999-01-01T00:00:00	Better Bows/BetterBows Recipes
 abdc3cc95b0fe976eb2ec09dc0eb2bf66999d8ba data/betterbows/advancement/recipes/misc/bowsmithing_table.json
 2c989b9631c0338d72fbe30f1536b064e14f93de data/betterbows/recipe/bowsmithing_table.json
+79fb0b5963b93970305f11c9a91ce9de8f97995d data/betterbows/recipe/redstone_bow.json
