@@ -17,13 +17,15 @@ import java.util.function.Predicate;
 public class CustomBow extends BowItem {
   public static final Predicate<ItemStack> ALL_ARROWS = ARROW_ONLY.or(itemStack -> itemStack.is(ModTags.Items.CUSTOM_ARROWS));
   public float powerMod;
+  public float speedMod;
 
   public CustomBow(Properties properties) {
-    super(properties);
+    this(properties, 1.0F, 1.0F);
   }
-  public CustomBow(Properties properties, float powerMod) {
+  public CustomBow(Properties properties, float powerMod, float speedMod) {
     super(properties);
     this.powerMod = powerMod;
+    this.speedMod = speedMod;
   }
 
   @Override
@@ -34,7 +36,7 @@ public class CustomBow extends BowItem {
         return false;
       }
 
-      int timeHeld = this.getUseDuration(itemStack, entity) - remainingTime;
+      float timeHeld = (this.getUseDuration(itemStack, entity) - remainingTime) * this.speedMod;
       float pow = this.getPowerForTimeAndItem(timeHeld);
       if (pow < 0.1) {
         return false;
@@ -42,7 +44,7 @@ public class CustomBow extends BowItem {
 
       List<ItemStack> firedProjectiles = draw(itemStack, projectile, player);
       if (level instanceof ServerLevel serverLevel && !firedProjectiles.isEmpty()) {
-        this.shoot(serverLevel, player, player.getUsedItemHand(), itemStack, firedProjectiles, pow * 3.0F, 1.0F, pow == 1.0F, null);
+        this.shoot(serverLevel, player, player.getUsedItemHand(), itemStack, firedProjectiles, pow * 3.0F * this.powerMod, 1.0F, pow == 1.0F, null);
       }
 
       level.playSound(
@@ -62,11 +64,11 @@ public class CustomBow extends BowItem {
     }
   }
 
-  public float getPowerForTimeAndItem(final int timeHeld) {
-    float pow = timeHeld / 20.0F * this.powerMod;
+  public float getPowerForTimeAndItem(final float timeHeld) {
+    float pow = timeHeld / 20.0F;
     pow = (pow * pow + pow * 2.0F) / 3.0F;
-    if (pow > 1.0F * this.powerMod) {
-      pow = 1.0F * this.powerMod;
+    if (pow > 1.0F) {
+      pow = 1.0F;
     }
 
     return pow;
