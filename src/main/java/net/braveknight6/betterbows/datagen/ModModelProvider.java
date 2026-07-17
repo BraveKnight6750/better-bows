@@ -33,29 +33,29 @@ public class ModModelProvider extends FabricModelProvider {
   }
 
   private void generateCustomBow(ItemModelGenerators generator, Item item) {
-    if (item instanceof CustomBow bow){
+    if (item instanceof CustomBow bow) {
       generator.createFlatItemModel(item, ModelTemplates.BOW);
       ItemModel.Unbaked bowModel = ItemModelUtils.plainModel(ModelLocationUtils.getModelLocation(bow));
-      ItemModel.Unbaked pulling0 = ItemModelUtils.plainModel(generator.createFlatItemModel(bow, "_pulling_0", ModelTemplates.BOW));
-      ItemModel.Unbaked pulling1 = ItemModelUtils.plainModel(generator.createFlatItemModel(bow, "_pulling_1", ModelTemplates.BOW));
-      ItemModel.Unbaked pulling2 = ItemModelUtils.plainModel(generator.createFlatItemModel(bow, "_pulling_2", ModelTemplates.BOW));
+      ItemModel.Unbaked pulling0 = ItemModelUtils.plainModel(
+          generator.createFlatItemModel(bow, "_pulling_0", ModelTemplates.BOW));
+      ItemModel.Unbaked pulling1 = ItemModelUtils.plainModel(
+          generator.createFlatItemModel(bow, "_pulling_1", ModelTemplates.BOW));
+      ItemModel.Unbaked pulling2 = ItemModelUtils.plainModel(
+          generator.createFlatItemModel(bow, "_pulling_2", ModelTemplates.BOW));
 
       float dynamicScale = 0.05F * bow.speedMod;
 
       generator.itemModelOutput.accept(
-              bow,
-              ItemModelUtils.conditional(
-                      ItemModelUtils.isUsingItem(),
-                      ItemModelUtils.rangeSelect(
-                              new UseDuration(false),
-                              dynamicScale,
-                              pulling0,
-                              ItemModelUtils.override(pulling1, 0.65F),
-                              ItemModelUtils.override(pulling2, 0.9F)
-                      ),
-                      bowModel
-              )
-      );
+          bow,
+          ItemModelUtils.conditional(
+              ItemModelUtils.isUsingItem(),
+              ItemModelUtils.rangeSelect(
+                  new UseDuration(false),
+                  dynamicScale,
+                  pulling0,
+                  ItemModelUtils.override(pulling1, 0.65F),
+                  ItemModelUtils.override(pulling2, 0.9F)),
+              bowModel));
     }
   }
 }

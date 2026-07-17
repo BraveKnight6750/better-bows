@@ -18,7 +18,8 @@ public abstract class AbstractClientPlayerMixin extends Player {
   }
 
   @Inject(method = "getFieldOfViewModifier", at = @At(value = "TAIL"), cancellable = true)
-  private void getFieldOfViewModifierMixin(boolean firstPerson, float effectScale, CallbackInfoReturnable<Float> info) {
+  private void getFieldOfViewModifierMixin(
+      boolean firstPerson, float effectScale, CallbackInfoReturnable<Float> info) {
     float modifier = 1f;
 
     if (this.isUsingItem() && this.getUseItem().is(ModTags.Items.CUSTOM_BOWS)) {
@@ -26,7 +27,5 @@ public abstract class AbstractClientPlayerMixin extends Player {
       modifier *= 1.0F - Mth.square(scale) * 0.15F;
       info.setReturnValue(Mth.lerp(effectScale, 1.0F, modifier));
     }
-
   }
-
 }

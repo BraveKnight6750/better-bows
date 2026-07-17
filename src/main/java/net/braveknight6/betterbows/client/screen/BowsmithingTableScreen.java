@@ -10,30 +10,29 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.player.Inventory;
 
 public class BowsmithingTableScreen extends AbstractContainerScreen<BowsmithingTableMenu> {
-  // Replace with your actual UI texture path
-  private static final Identifier TEXTURE =
-      Identifier.fromNamespaceAndPath(
-          BetterBows.MOD_ID, "textures/gui/container/bowsmithing_table.png");
+    // Replace with your actual UI texture path
+    private static final Identifier TEXTURE = Identifier.fromNamespaceAndPath(
+            BetterBows.MOD_ID, "textures/gui/container/bowsmithing_table.png");
 
-  public BowsmithingTableScreen(
-      BowsmithingTableMenu menu, Inventory playerInventory, Component title) {
-    super(menu, playerInventory, title);
-  }
+    public BowsmithingTableScreen(
+            BowsmithingTableMenu menu, Inventory playerInventory, Component title) {
+        super(menu, playerInventory, title);
+    }
 
-  public void extractBackground(
-      GuiGraphicsExtractor guiGraphicsExtractor, int mouseX, int mouseY, float a) {
-    int x = this.leftPos;
-    int y = (this.height - this.imageHeight) / 2;
-    guiGraphicsExtractor.blit(
-        RenderPipelines.GUI_TEXTURED,
-        TEXTURE,
-        x,
-        y,
-        0,
-        0,
-        this.imageWidth,
-        this.imageHeight,
-        256,
-        256);
-  }
+    public void extractBackground(
+            GuiGraphicsExtractor guiGraphicsExtractor, int mouseX, int mouseY, float a) {
+        int x = this.leftPos;
+        int y = (this.height - this.imageHeight) / 2;
+        guiGraphicsExtractor.blit(
+                RenderPipelines.GUI_TEXTURED,
+                TEXTURE,
+                x,
+                y,
+                0,
+                0,
+                this.imageWidth,
+                this.imageHeight,
+                256,
+                256);
+    }
 }

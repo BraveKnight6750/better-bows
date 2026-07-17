@@ -97,8 +97,7 @@ public class BowsmithingTableMenu extends AbstractContainerMenu {
   @Override
   public void slotsChanged(Container container) {
     this.access.execute(
-        (level, pos) ->
-            updateCraftingResult(this, level, this.player, this.craftSlots, this.resultSlots));
+        (level, pos) -> updateCraftingResult(this, level, this.player, this.craftSlots, this.resultSlots));
   }
 
   @Override
@@ -119,9 +118,8 @@ public class BowsmithingTableMenu extends AbstractContainerMenu {
 
       CraftingInput craftingInput = craftingContainer.asCraftInput();
 
-      Optional<RecipeHolder<CustomCraftingRecipe>> match =
-          ((RecipeManager) level.recipeAccess())
-              .getRecipeFor(ModRecipes.CUSTOM_RECIPE_TYPE, craftingInput, level);
+      Optional<RecipeHolder<CustomCraftingRecipe>> match = ((RecipeManager) level.recipeAccess())
+          .getRecipeFor(ModRecipes.CUSTOM_RECIPE_TYPE, craftingInput, level);
 
       if (match.isPresent()) {
         resultStack = match.get().value().assemble(craftingInput);

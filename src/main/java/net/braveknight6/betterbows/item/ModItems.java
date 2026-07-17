@@ -1,5 +1,6 @@
 package net.braveknight6.betterbows.item;
 
+import java.util.function.Function;
 import net.braveknight6.betterbows.BetterBows;
 import net.braveknight6.betterbows.item.custom.CustomBow;
 import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
@@ -10,24 +11,18 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 
-import java.util.function.Function;
-
 public class ModItems {
   public static final Item QUIVER = registerItem("quiver", Item::new);
 
-  public static final Item REDSTONE_BOW =
-      registerItem("redstone_bow", properties -> new CustomBow(properties.durability(50), 1.5F, 1.5F));
+  public static final Item REDSTONE_BOW = registerItem(
+      "redstone_bow", properties -> new CustomBow(properties.durability(50), 1.5F, 1.5F));
 
   public static Item registerItem(String name, Function<Item.Properties, Item> function) {
     return Registry.register(
         BuiltInRegistries.ITEM,
         BetterBows.id(name),
         function.apply(
-            new Item.Properties()
-                .setId(
-                    ResourceKey.create(
-                        Registries.ITEM,
-                        BetterBows.id(name)))));
+            new Item.Properties().setId(ResourceKey.create(Registries.ITEM, BetterBows.id(name)))));
   }
 
   public static void registerModItems() {
